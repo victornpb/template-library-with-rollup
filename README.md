@@ -7,21 +7,25 @@
 [![Coverage Status](https://img.shields.io/coveralls/username/foo-bar.svg?style=flat-square)](https://coveralls.io/github/username/foo-bar)
 [![NPM](https://img.shields.io/npm/dt/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
 
-A super lightweight fps meter, with near zero overhead
+Headline description
 
 ## Installation
 
-[Yarn](https://github.com/yarnpkg/yarn)
+### [Yarn](https://github.com/yarnpkg/yarn)
 
     yarn add foo-bar
 
-NPM
+### NPM
 
     npm install foo-bar
+    
+### CDN
 
-If you don't use a package manager, you can [access `foo-bar` via unpkg (CDN)](https://unpkg.com/foo-bar/), download the source, or point your package manager to the url.
+    https://unpkg.com/foo-bar/
 
 ## Usage
+
+Examples here
 
 ## License
 
