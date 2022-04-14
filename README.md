@@ -11,17 +11,30 @@ Headline description
 
 ## Installation
 
+### NPM
+
+    npm install foo-bar
 ### [Yarn](https://github.com/yarnpkg/yarn)
 
     yarn add foo-bar
 
-### NPM
-
-    npm install foo-bar
-    
 ### CDN
 
-    https://unpkg.com/foo-bar/
+    <script type="text/javascript" src="https://unpkg.com/foo-bar/"></script>
+
+## Packages
+
+<!-- Output table (auto generated do not modify) -->
+
+|                 File | Module Type | Transpiled | Source Maps |                             Import example |
+|----------------------|-------------|------------|-------------|--------------------------------------------|
+| dist/foo-bar.esm.mjs |         esm |         No |          No | import FooBar from 'dist/foo-bar.esm.mjs'; |
+|  dist/foo-bar.cjs.js |         cjs |        Yes |         Yes |             require('dist/foo-bar.cjs.js') |
+|  dist/foo-bar.esm.js |         esm |        Yes |         Yes |  import FooBar from 'dist/foo-bar.esm.js'; |
+|      dist/foo-bar.js |         umd |        Yes |         Yes |                 require('dist/foo-bar.js') |
+
+<!-- END -->
+
 
 ## Usage
 
