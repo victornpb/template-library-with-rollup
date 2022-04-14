@@ -10,7 +10,7 @@
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
@@ -23,6 +23,11 @@
         "args": "none"
       }
     ],
-    "no-console": "off"
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-unused-expressions": "error",
+    "no-trailing-spaces": "error",
+    "no-undef": "error"
+
   }
 }

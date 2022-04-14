@@ -18,7 +18,22 @@ const license = () => S(`
 const production = !process.env.ROLLUP_WATCH;
 const sourcemap = production ? true : 'inline';
 
-export default [
+
+const assumptions = {
+  constantSuper: true,
+  enumerableModuleMeta: true,
+  ignoreFunctionLength: true,
+  ignoreToPrimitiveHint: true,
+  noClassCalls: true,
+  noDocumentAll: true,
+  noNewArrows: true,
+  privateFieldsAsProperties: true,
+  setClassMethods: true,
+  setComputedProperties: true,
+  setPublicClassFields: true,
+};
+
+const config = [
 
   // Modern Module (No babel preset)
   {
@@ -28,17 +43,18 @@ export default [
         file: packageJson.module.replace('.js', '.mjs'),
         format: 'esm',
         sourcemap: false,
+        exports: 'default',
       },
     ],
     plugins: [
       resolve(),
       commonjs(),
-      babel({
-        plugins: [
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-proposal-private-methods'
-        ]
-      }),
+      // babel({
+      //   assumptions,
+      //   plugins: [
+
+      //   ]
+      // }),
       banner(license)
     ]
   },
@@ -55,7 +71,8 @@ export default [
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap
+        sourcemap,
+        exports: 'default',
       },
     ],
     plugins: [
@@ -76,9 +93,9 @@ export default [
             }
           ]
         ],
+        assumptions,
         plugins: [
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-proposal-private-methods'
+
         ]
       }),
       commonjs(),
@@ -102,7 +119,8 @@ export default [
         name: packageJson.globalVar,
         file: packageJson.unpkg,
         format: 'umd',
-        sourcemap
+        sourcemap,
+        exports: 'default',
       }
     ],
     plugins: [
@@ -123,9 +141,9 @@ export default [
             }
           ]
         ],
+        assumptions,
         plugins: [
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-proposal-private-methods'
+
         ]
       }),
       commonjs(),
@@ -138,3 +156,54 @@ export default [
   }
 
 ];
+
+
+// generate a markdown table containing output options for the README
+function updateReadmeOutputTable() {
+  function generateOutputDescription(rollupConfig) {
+    const matrixToAsciiTable = require('asciitable.js');
+    const gihubTable = {
+      row: {
+        paddingLeft: '|',
+        paddingRight: '|',
+        colSeparator: '|',
+        lineBreak: '\n'
+      },
+      cell: {
+        paddingLeft: ' ',
+        paddingRight: ' ',
+        defaultAlignDi: -1
+      },
+      hr: {
+        str: '-',
+        colSeparator: '|'
+      }
+    };
+    const header = ['File', 'Module Type', 'Transpiled', 'Source Maps', 'Import example'];
+    const lines = [header, null];
+    for (const config of rollupConfig) {
+      const babel = config.plugins.find(plugin => plugin.name === 'babel');
+      const transpiled = babel ? 'Yes' : 'No';
+      for (const outputConfig of config.output) {
+        const sourceMaps = outputConfig.sourcemap === true ? 'Yes' : 'No';
+        const importExample = outputConfig.format === 'esm' ? `import ${packageJson.globalVar} from '${outputConfig.file}';` : `require('${outputConfig.file}')`;
+        lines.push([outputConfig.file, outputConfig.format, transpiled, sourceMaps, importExample]);
+      }
+    }
+    return matrixToAsciiTable(lines, gihubTable);
+  }
+  function replaceBetween(str, startString, endString, substitute) {
+    const startIndex = str.indexOf(startString);
+    const endIndex = str.indexOf(endString, startIndex + startString.length);
+    return (startIndex !== -1 && endIndex !== -1) ? str.slice(0, startIndex + startString.length) + substitute + str.slice(endIndex) : str;
+  }
+  const fs = require('fs');
+  const readme = fs.readFileSync('README.md', 'utf8');
+  const outputDescription = generateOutputDescription(config);
+  const newReadme = replaceBetween(readme, '<!-- Output table (auto generated do not modify) -->', '<!-- END -->', `\n\n${outputDescription}\n\n`);
+  fs.writeFileSync('README.md', newReadme);
+}
+
+updateReadmeOutputTable();
+
+export default config;
