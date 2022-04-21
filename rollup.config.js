@@ -66,7 +66,8 @@ const config = [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap
+        sourcemap,
+        exports: 'default',
       },
       {
         file: packageJson.module,
