@@ -21,15 +21,14 @@
   "unpkg": "dist/foo-bar.js",
   "globalVar": "FooBar",
   "scripts": {
-    "start": "rollup -c -w",
-    "dev": "rollup -c -w",
+    "start": "npm run watch",
     "build": "rollup -c",
-    "test": "npm run lint",
+    "watch": "rollup -c -w",
+    "prebuild": "rimraf dist",
+    "test": "npm run lint && npm run build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "prebuild": "rimraf dist",
-    "prepublishOnly": "npm run build && git add . && git commit -m \"Updating build\"",
-    "release": "np patch --any-branch"
+    "release": "np --any-branch"
   },
   "files": [
     "dist"
