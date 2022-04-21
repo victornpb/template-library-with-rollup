@@ -26,12 +26,12 @@ Headline description
 
 <!-- Output table (auto generated do not modify) -->
 
-|                 File | Module Type | Transpiled | Source Maps |                             Import example |
-|----------------------|-------------|------------|-------------|--------------------------------------------|
-| dist/foo-bar.esm.mjs |         esm |         No |          No | import FooBar from 'dist/foo-bar.esm.mjs'; |
-|  dist/foo-bar.cjs.js |         cjs |        Yes |         Yes |             require('dist/foo-bar.cjs.js') |
-|  dist/foo-bar.esm.js |         esm |        Yes |         Yes |  import FooBar from 'dist/foo-bar.esm.js'; |
-|      dist/foo-bar.js |         umd |        Yes |         Yes |                 require('dist/foo-bar.js') |
+| File                 | Module Type | Transpiled | Source Maps |
+|----------------------|-------------|------------|-------------|
+| dist/foo-bar.esm.mjs | esm         | No         | No          |
+| dist/foo-bar.cjs.js  | cjs         | Yes        | Yes         |
+| dist/foo-bar.esm.js  | esm         | Yes        | Yes         |
+| dist/foo-bar.js      | umd         | Yes        | Yes         |
 
 <!-- END -->
 
