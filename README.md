@@ -1,17 +1,23 @@
 # foo-bar
+<!-- badge -->
+[![LICENSE](https://img.shields.io/github/license/username/foo-bar?style=flat-square)](LICENSE)
+[![Node](https://img.shields.io/node/v/foo-bar.svg?style=flat-square)](package.json)
+[![CodeFactor](https://www.codefactor.io/repository/github/username/foo-bar/badge?style=flat-square)](https://www.codefactor.io/repository/github/username/foo-bar)
 
-![Node](https://img.shields.io/node/v/foo-bar.svg?style=flat-square)
-[![NPM](https://img.shields.io/npm/v/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
-[![Travis](https://img.shields.io/travis/username/foo-bar/master.svg?style=flat-square)](https://travis-ci.org/username/foo-bar)
-[![David](https://img.shields.io/david/username/foo-bar.svg?style=flat-square)](https://david-dm.org/username/foo-bar)
 [![Coverage Status](https://img.shields.io/coveralls/username/foo-bar.svg?style=flat-square)](https://coveralls.io/github/username/foo-bar)
-[![NPM](https://img.shields.io/npm/dt/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+[![Travis](https://img.shields.io/travis/username/foo-bar/master.svg?style=flat-square)](https://travis-ci.org/username/foo-bar)
+
+[![Version](https://img.shields.io/npm/v/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+[![Downloads](https://img.shields.io/npm/dt/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+[![](https://img.shields.io/bundlephobia/minzip/tiny-dedent?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+[![](https://img.shields.io/tokei/lines/github/username/foo-bar?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+<!-- endbadge -->
 
 Headline description
 
 ## Installation
 
-### NPM
+### [NPM](https://npmjs.com/package/foo-bar)
 
     npm install foo-bar
 ### [Yarn](https://github.com/yarnpkg/yarn)
