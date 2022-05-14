@@ -50,7 +50,7 @@
     "@babel/preset-env": "^7.16.11",
     "asciitable.js": "^1.0.3",
     "eslint": "^8.13.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "lint-staged": "^12.4.0",
     "np": "^7.6.1",
     "postcss": "^8.4.12",
