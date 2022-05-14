@@ -9,7 +9,7 @@
 
 [![Version](https://img.shields.io/npm/v/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
 [![Downloads](https://img.shields.io/npm/dt/foo-bar.svg?style=flat-square)](https://www.npmjs.com/package/foo-bar)
-[![](https://img.shields.io/bundlephobia/minzip/tiny-dedent?style=flat-square)](https://www.npmjs.com/package/foo-bar)
+[![](https://img.shields.io/bundlephobia/minzip/foo-bar?style=flat-square)](https://www.npmjs.com/package/foo-bar)
 [![](https://img.shields.io/tokei/lines/github/username/foo-bar?style=flat-square)](https://www.npmjs.com/package/foo-bar)
 <!-- endbadge -->
 
