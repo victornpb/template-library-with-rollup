@@ -52,7 +52,6 @@ const config = [
       // babel({
       //   assumptions,
       //   plugins: [
-
       //   ]
       // }),
       banner(license)
@@ -105,7 +104,6 @@ const config = [
       //   output: {
       //     // compress: false,
       //     // mangle: false,
-
       //   }
       // }),
       banner(license)
