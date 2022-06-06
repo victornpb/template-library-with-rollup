@@ -161,24 +161,7 @@ const config = [
 // generate a markdown table containing output options for the README
 function updateReadmeOutputTable() {
   function generateOutputDescription(rollupConfig) {
-    const matrixToAsciiTable = require('asciitable.js');
-    const gihubTable = {
-      row: {
-        paddingLeft: '|',
-        paddingRight: '|',
-        colSeparator: '|',
-        lineBreak: '\n'
-      },
-      cell: {
-        paddingLeft: ' ',
-        paddingRight: ' ',
-        defaultAlignDir: -1
-      },
-      hr: {
-        str: '-',
-        colSeparator: '|'
-      }
-    };
+    const asciitable = require('asciitable.js');
     const header = ['File', 'Module Type', 'Transpiled', 'Source Maps', /*'Import example'*/];
     const lines = [header, null];
     for (const config of rollupConfig) {
@@ -190,7 +173,7 @@ function updateReadmeOutputTable() {
         lines.push([outputConfig.file, outputConfig.format, transpiled, sourceMaps, /*importExample*/]);
       }
     }
-    return matrixToAsciiTable(lines, gihubTable);
+    return asciitable(lines);
   }
   function replaceBetween(str, startString, endString, substitute) {
     const startIndex = str.indexOf(startString);
