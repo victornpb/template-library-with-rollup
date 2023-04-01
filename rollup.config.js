@@ -40,7 +40,7 @@ const config = [
     input: entry,
     output: [
       {
-        file: packageJson.module.replace('.js', '.mjs'),
+        file: packageJson.exports.import,
         format: 'esm',
         sourcemap: false,
         exports: 'default',

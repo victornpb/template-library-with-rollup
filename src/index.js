@@ -9,7 +9,7 @@ export default class FooBar {
   sum(a, b) {
     return sum(a, b);
   }
-  #bar() {
-    return 123;
+  #bar(x) {
+    return x ?? 69;
   }
 }

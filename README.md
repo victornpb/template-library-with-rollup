@@ -32,12 +32,12 @@ Headline description
 
 <!-- Output table (auto generated do not modify) -->
 
-| File                 | Module Type | Transpiled | Source Maps |
-|----------------------|-------------|------------|-------------|
-| dist/foo-bar.esm.mjs | esm         | No         | No          |
-| dist/foo-bar.cjs.js  | cjs         | Yes        | Yes         |
-| dist/foo-bar.esm.js  | esm         | Yes        | Yes         |
-| dist/foo-bar.js      | umd         | Yes        | Yes         |
+| File                | Module Type | Transpiled | Source Maps |
+|---------------------|-------------|------------|-------------|
+| ./dist/foo-bar.mjs  | esm         | No         | No          |
+| dist/foo-bar.cjs.js | cjs         | Yes        | Yes         |
+| dist/foo-bar.esm.js | esm         | Yes        | Yes         |
+| dist/foo-bar.js     | umd         | Yes        | Yes         |
 
 <!-- END -->
 
