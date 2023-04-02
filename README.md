@@ -85,3 +85,5 @@ The code is available under the [MIT](LICENSE) license.
 ## Contributing
 
 We are open to contributions, see [CONTRIBUTING.md](CONTRIBUTING.md) for more info.
+
+You need at least Node 18 to build the project

@@ -1,10 +1,13 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
+import babel from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
 import banner from 'rollup-plugin-banner2';
+import bakedEnv from 'rollup-plugin-baked-env';
 import S from 'tiny-dedent';
-import packageJson from './package.json';
+
+const importJson = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+const packageJson = importJson('./package.json');
 
 const license = () => S(`
   /*!
@@ -47,6 +50,7 @@ const config = [
       },
     ],
     plugins: [
+      bakedEnv(),
       resolve(),
       commonjs(),
       // babel({
@@ -76,6 +80,7 @@ const config = [
       },
     ],
     plugins: [
+      bakedEnv(),
       resolve(),
       babel({
         exclude: 'node_modules/**',
@@ -123,6 +128,7 @@ const config = [
       }
     ],
     plugins: [
+      bakedEnv(),
       resolve(),
       babel({
         exclude: 'node_modules/**',
@@ -155,11 +161,12 @@ const config = [
 
 ];
 
+import fs from 'fs';
+import asciitable from 'asciitable.js';
 
 // generate a markdown table containing output options for the README
 function updateReadmeOutputTable() {
   function generateOutputDescription(rollupConfig) {
-    const asciitable = require('asciitable.js');
     const header = ['File', 'Module Type', 'Transpiled', 'Source Maps', /*'Import example'*/];
     const lines = [header, null];
     for (const config of rollupConfig) {
@@ -178,7 +185,7 @@ function updateReadmeOutputTable() {
     const endIndex = str.indexOf(endString, startIndex + startString.length);
     return (startIndex !== -1 && endIndex !== -1) ? str.slice(0, startIndex + startString.length) + substitute + str.slice(endIndex) : str;
   }
-  const fs = require('fs');
+
   const readme = fs.readFileSync('README.md', 'utf8');
   const outputDescription = generateOutputDescription(config);
   const newReadme = replaceBetween(readme, '<!-- Output table (auto generated do not modify) -->', '<!-- END -->', `\n\n${outputDescription}\n\n`);
